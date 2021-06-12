@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { Container, Segment, Image, Icon, Header, Label, Divider } from 'semantic-ui-react'
 import JobAdvertisementService from "../services/jobAdvertisementService";
+import Moment from 'react-moment';
 
 export default function JobAdvertisementDetailList() {
     let { id } = useParams();
@@ -45,20 +46,28 @@ export default function JobAdvertisementDetailList() {
                     <Header as='h2' floated='left'>
                         {jobAdvertisements.city?.citiyName}
                     </Header>
-                    <div style={{  marginLeft: "100px", position: "absolute" }}>
+                    <div style={{  marginLeft: "110px", position: "absolute" }}>
                         <Label as='a' color='teal' tag>
                             {jobAdvertisements.workingTime?.workingTimeName}
                         </Label>
                     </div>
-                    <div style={{ marginLeft: "230px", position: "absolute" }}>
-                        <Label as='a' color='green' tag>
+                    <div style={{ marginLeft: "240px", position: "absolute" }}>
+                        <Label as='a' color='green' tag>İT: 
                             <Moment format="YYYY/MM/DD">
                                 {jobAdvertisements.creationDate}
                             </Moment>
                 
                         </Label>
                     </div>
-                    <div style={{ marginLeft: "150px" }}>
+                    <div style={{ marginLeft: "380px", position: "absolute" }}>
+                        <Label as='a' color='red' tag>ST:
+                            <Moment format="YYYY/MM/DD">
+                                {jobAdvertisements.applicationDeadline}
+                            </Moment>
+
+                        </Label>
+                    </div>
+                    <div style={{ marginLeft: "490px" }}>
                         <Label as='a' color='blue' image>
                             <Icon inverted name='lira' />
                             {jobAdvertisements.minSalary}
